@@ -22,6 +22,13 @@ public class ContaCorrente extends Conta{
         }
     }
 
+    public boolean transferir(double valor,Conta conta) {
+    	if(this.sacar(valor)) {
+    		return conta.depositar(valor);
+    	}
+    	return false;
+    }
+    
     public boolean aplicarTaxa(){
         saldo -= taxaManutencao;
         return true;

@@ -10,7 +10,14 @@ public class ContaPoupanca extends Conta{
         super(agencia, numero, saldo, dataAbertura, cliente);
         this.taxaJuros = taxaJuros;
     }
-
+    
+    public boolean transferir(double valor,Conta conta) {
+    	if(this.sacar(valor)) {
+    		return conta.depositar(valor);
+    	}
+    	return false;
+    }
+    
     public double getTaxaJuros() {
         return taxaJuros;
     }
