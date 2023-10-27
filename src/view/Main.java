@@ -16,70 +16,236 @@ public class Main {
     	Conta contacorrente2=new ContaCorrente(31,255,900,LocalDate.now(),leivas,30);
     	int opcao;
     	
-    	do {
+do {
+
     		System.out.println("digite 1 para entrar como lucio\ndigite 2 para entrar como leivas\ndigite 0 para sair");
+
     		opcao=sc.nextInt();
+
     		
+
     		switch(opcao) {
+
     		case 1:System.out.println("voce entrou como lucio!!!");
+
     		
+
 				do {
+
     			System.out.println(" Digite:\n1-Sacar\n2-Depositar\n3-Transferir\n4-Ver saldo\n5-Encerrar o programa");
+
     			opcao=sc.nextInt();
+
     			double valor;
+
     			
+
     			switch(opcao) {
+
     			
+
     			case 1:
+
     				System.out.println("digite o valor para ser sacado:");
+
     				valor=sc.nextDouble();
+
     				if(contacorrente1.sacar(valor)) {
-    					System.out.println("deu certo");
+
+    					System.out.println("saque feito com sucesso");
+
     				}else {
+
     					System.out.println("saldo insuficiente");
+
     				}
+
     				break;
+
     				
+
     			case 2:
+
     				System.out.println("digite o valor a ser depositado:");
+
     				valor=sc.nextDouble();
+
     				if(contacorrente1.depositar(valor)) {
-    					System.out.println("deu certo");
+
+    					System.out.println("deposito feito com sucesso");
+
     				}else {
+
     					System.out.println("algo deu errado");
+
     				}
+
     				break;
+
     				
+
     			case 3:
+
+    				System.out.println("digite o valor a ser tansferido");
+
     				valor=sc.nextDouble();
+
     				if(contacorrente1.transferir(valor, contacorrente2)) {
+
+    					System.out.println("transferencia realizada com sucesso");
+
     					}
+
     				break;
+
     				
+
     			case 4:
+
     				System.out.println("seu saldo eh:"+contacorrente1.getSaldo());
+
     				break;
+
     				
+
     			case 5:
+
     				System.out.println("Saindo!!!");
+
     				break;
+
     				
+
     				default:System.out.println("valor inválido");
+
     				break;
+
     			}
+
     			
+
     		}while(opcao!=5);
+
     		break;
-    	
+
+    		
+
+    		case 2:
+
+    			do {
+
+        			System.out.println(" Digite:\n1-Sacar\n2-Depositar\n3-Transferir\n4-Ver saldo\n5-Encerrar o programa");
+
+        			opcao=sc.nextInt();
+
+        			double valor;
+
+        			
+
+        			switch(opcao) {
+
+        			case 1:
+
+        				System.out.println("digite o valor para ser sacado:");
+
+        				valor=sc.nextDouble();
+
+        				if(contacorrente2.sacar(valor)) {
+
+        					System.out.println("saque feito com sucesso");
+
+        				}else {
+
+        					System.out.println("saldo insuficiente");
+
+        				}
+
+        				break;
+
+        				
+
+        			case 2:
+
+        				System.out.println("digite o valor a ser depositado:");
+
+        				valor=sc.nextDouble();
+
+        				if(contacorrente2.depositar(valor)) {
+
+        					System.out.println("deposito feito com sucesso");
+
+        				}else {
+
+        					System.out.println("algo deu errado");
+
+        				}
+
+        				break;
+
+        				
+
+        			case 3:
+
+        				System.out.println("digite o valor a ser tansferido");
+
+        				valor=sc.nextDouble();
+
+        				if(contacorrente2.transferir(valor, contacorrente1)) {
+
+        					System.out.println("transferencia realizada com sucesso");
+
+        					}
+
+        				break;
+
+        				
+
+        			case 4:
+
+        				System.out.println("seu saldo eh:"+contacorrente2.getSaldo());
+
+        				break;
+
+        				
+
+        			case 5:
+
+        				System.out.println("Saindo!!!");
+
+        				break;
+
+        				
+
+        				default:System.out.println("valor inválido");
+
+        				break;
+
+        			}
+
+        		}while(opcao!=5);
+
+        		break;    		
+
+        		
+
     		case 0:
+
     			System.out.println("Encerrando!!!");
+
     			break;
+
     		
+
     		default:
+
     			System.out.println("digite um valor válido");
+
     			break;
+
     			}
+
     		
+
     	}while(opcao!=0);
     }
 }
