@@ -16,13 +16,15 @@ public abstract class Conta {
         this.saldo = saldo;
         this.dataAbertura = dataAbertura;
         this.cliente = cliente;
+
     }
 
     public boolean depositar(double valor){
         //TODO: Verificar problemas no preenchimento
-        saldo += valor;
+        this.saldo += valor;
         return true;
     }
+    public abstract boolean transferir(double valor,Conta conta);
 
     public abstract boolean sacar(double valor);
 
